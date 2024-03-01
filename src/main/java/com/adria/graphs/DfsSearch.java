@@ -31,15 +31,15 @@ class DfsSearch {
     public static class Node{
         int data;
         boolean isVisited;
-        List<Node> neiborsNodes=new ArrayList();
+        List<Node> neighborsNodes =new ArrayList();
 
         Node(int data){
             this.data=data;
         }
 
-        Node(int data, List<Node> neiborsNodes){
+        Node(int data, List<Node> neighborsNodes){
             this.data=data;
-            this.neiborsNodes=neiborsNodes;
+            this.neighborsNodes = neighborsNodes;
         }
 
         public static void dfsSearch(Node root){
@@ -50,7 +50,7 @@ class DfsSearch {
                 Node currentNode=dfsStack.pop();
                 currentNode.processNode();
                 currentNode.visitNode();
-                for(Node node: currentNode.getNeiborsNodes()){
+                for(Node node: currentNode.getNeighborsNodes()){
                     if(!node.isVisited) dfsStack.push(node);
                 }
             }
@@ -60,8 +60,8 @@ class DfsSearch {
             return this.data;
         }
 
-        public List<Node> getNeiborsNodes(){
-            return this.neiborsNodes;
+        public List<Node> getNeighborsNodes(){
+            return this.neighborsNodes;
         }
 
         public void visitNode(){
@@ -69,7 +69,7 @@ class DfsSearch {
         }
 
         public void addNeiborsNodes(List<Node> nodes){
-            this.neiborsNodes.addAll(nodes);
+            this.neighborsNodes.addAll(nodes);
         }
 
         public void processNode(){
